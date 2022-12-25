@@ -1,0 +1,14 @@
+apiVersion: k3d.io/v1alpha3
+kind: Simple
+
+name: kubernetes-cicd
+
+servers: 1
+agents: 2
+
+options:
+    k3s:
+        extraArgs:
+            - arg: --no-deploy=traefik
+              nodeFilters:
+                - server:*
