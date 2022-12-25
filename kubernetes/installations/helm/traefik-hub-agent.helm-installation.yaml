@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+    name: traefik-hub-agent-helm-installation
+    namespace: argocd
+
+spec:
+    project: default
+
+    destination:
+        server: https://kubernetes.default.svc
+        namespace: hub-agent
+
+    source:
+        repoURL: https://helm.traefik.io/traefik
+        chart: hub-agent
+        targetRevision: 1.2.1
+        helm:
+            releaseName: hub-agent
+            values: |
+                token: 22eb3d8f-e6ed-485d-9745-bba7d3033158
+
+                image:
+                    tag: experimental
+                    pullPolicy: Always
+
+    syncPolicy:
+        automated:
+            prune: true
+            selfHeal: true
