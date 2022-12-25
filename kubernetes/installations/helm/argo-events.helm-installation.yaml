@@ -10,7 +10,7 @@ spec:
 
     destination:
         server: https://kubernetes.default.svc
-        namespace: hub-agent
+        namespace: argo-events
 
     source:
         repoURL: https://argoproj.github.io/argo-helm
