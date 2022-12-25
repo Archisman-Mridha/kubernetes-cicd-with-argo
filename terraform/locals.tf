@@ -2,6 +2,6 @@ locals {
     kubeconfig= {
 
         path = "~/.kube/config"
-        context = "kubernetes-cicd"
+        context = "k3d-kubernetes-cicd"
     }
 }
