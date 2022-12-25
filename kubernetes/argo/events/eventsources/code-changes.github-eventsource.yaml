@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+
+metadata:
+    name: code-changes
+    namespace: argo-events
+
+spec:
+    webhook:
+        code-change:
+            port: "12000"
+            endpoint: /trigger-container-image-builder
+            method: POST
+
+---
+
+#* service used to expose the above eventsource outside the cluster
+apiVersion: v1
+kind: Service
+
+metadata:
+    name: code-changes
+    namespace: argo-events
+
+spec:
+    ports:
+        - port: 12000
+          protocol: TCP
+          targetPort: 12000
+    selector:
+        eventsource-name: code-changes
+    type: NodePort
