@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+    name: argo-workflows-kustomize-installation
+    namespace: argocd
+
+spec:
+    project: default
+
+    source:
+        repoURL: https://github.com/Archisman-Mridha/kubernetes-cicd
+        targetRevision: HEAD
+        path: kubernetes/installations/kustomize/argo-workflows
+
+    destination:
+        server: https://kubernetes.default.svc
+        namespace: argo
+
+    syncPolicy:
+        automated:
+            prune: true
+            selfHeal: true
