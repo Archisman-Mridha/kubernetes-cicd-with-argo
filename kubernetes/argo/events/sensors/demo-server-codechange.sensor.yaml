@@ -28,7 +28,7 @@ spec:
                         kind: Workflow
 
                         metadata:
-                            generateName: demo-server-container-image-deployment-workflow-
+                            generateName: demo-server-container-image-deployment-
                             namespace: argo
 
                         spec:
