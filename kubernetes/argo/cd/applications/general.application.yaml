@@ -4,6 +4,10 @@ kind: Application
 metadata:
     name: general
     namespace: argocd
+    annotations:
+        argocd-image-updater.argoproj.io/image-list: archismanmridha/demo-server
+        argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-credentials
+        argocd-image-updater.argoproj.io/git-branch: main
 
 spec:
     project: default
