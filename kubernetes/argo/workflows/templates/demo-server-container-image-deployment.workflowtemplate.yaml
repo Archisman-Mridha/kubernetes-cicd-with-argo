@@ -43,7 +43,7 @@ spec:
           volumes:
             - name: dockerhub-credentials-secret
               secret:
-                secretName: dockerhub-credentials-secret
+                secretName: dockerhub-credentials
           container:
             image: moby/buildkit:v0.9.3-rootless
             volumeMounts:
