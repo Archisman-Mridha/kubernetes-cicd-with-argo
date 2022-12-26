@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+    name: argocd-image-updater-kustomize-installation
+    namespace: argocd
+
+spec:
+    project: default
+
+    source:
+        repoURL: https://github.com/Archisman-Mridha/kubernetes-cicd
+        targetRevision: HEAD
+        path: kubernetes/installations/kustomize/argocd-image-updater
+
+    destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
+
+    syncPolicy:
+        automated:
+            prune: true
+            selfHeal: true
