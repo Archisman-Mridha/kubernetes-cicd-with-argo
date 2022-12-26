@@ -13,14 +13,14 @@ resource "helm_release" "argocd" {
 
 #* creating the argocd application manager
 
-data "kubectl_file_documents" "argocd_application_manager_documents" {
-    content = file("./manifests/argocd-application-manager.argocd-application.yaml")
+data "kubectl_file_documents" "argocd_resources_application_documents" {
+    content = file("./manifests/argocd-resources.argocd-application.yaml")
 }
 
-resource "kubectl_manifest" "argocd_application_manager_manifest" {
+resource "kubectl_manifest" "argocd_resources_application_manifest" {
     depends_on = [ helm_release.argocd ]
 
-    for_each = data.kubectl_file_documents.argocd_application_manager_documents.manifests
+    for_each = data.kubectl_file_documents.argocd_resources_application_documents.manifests
     yaml_body = each.value
 
     wait = true

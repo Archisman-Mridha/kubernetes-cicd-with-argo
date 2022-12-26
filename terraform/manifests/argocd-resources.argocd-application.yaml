@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 
 metadata:
-    name: argocd-application-manager
+    name: argocd-resources
     namespace: argocd
 
 spec:
@@ -11,7 +11,7 @@ spec:
     source:
         repoURL: https://github.com/Archisman-Mridha/kubernetes-cicd
         targetRevision: HEAD
-        path: kubernetes/argo/cd/applications
+        path: kubernetes/argo/cd
         directory:
             recurse: true
 
