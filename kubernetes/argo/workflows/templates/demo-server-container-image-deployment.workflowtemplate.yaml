@@ -68,4 +68,4 @@ spec:
                 - --local
                 - dockerfile=.
                 - --output
-                - type=image,name=docker.io/archismanmridha/demo-server:latest,push=true
+                - type=image,name=docker.io/archismanmridha/demo-server:0.0.1,push=true
