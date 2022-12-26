@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 
 metadata:
-    name: general
+    name: demo-server-microservice
     namespace: argocd
     annotations:
         argocd-image-updater.argoproj.io/image-list: archismanmridha/demo-server
@@ -15,9 +15,7 @@ spec:
     source:
         repoURL: https://github.com/Archisman-Mridha/kubernetes-cicd
         targetRevision: HEAD
-        path: kubernetes/general
-        directory:
-            recurse: true
+        path: kubernetes/microservices/demo-server
 
     destination:
         server: https://kubernetes.default.svc
