@@ -4,8 +4,10 @@ kind: Application
 metadata:
     name: demo-server-microservice
     namespace: argocd
+    finalizers:
+        - resources-finalizer.argocd.argoproj.io
     annotations:
-        argocd-image-updater.argoproj.io/image-list: archismanmridha/demo-server
+        argocd-image-updater.argoproj.io/image-list: docker.io/archismanmridha/demo-server
         argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-credentials
         argocd-image-updater.argoproj.io/git-branch: main
 
@@ -19,9 +21,10 @@ spec:
 
     destination:
         server: https://kubernetes.default.svc
-        namespace: "*"
+        namespace: default
 
     syncPolicy:
         automated:
             prune: true
             selfHeal: true
+            allowEmpty: true
