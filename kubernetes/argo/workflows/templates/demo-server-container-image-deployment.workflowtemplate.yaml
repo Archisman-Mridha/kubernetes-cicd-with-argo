@@ -58,7 +58,7 @@ spec:
                 - name: DOCKER_CONFIG
                   value: /.docker
             command:
-                - buildctl-daemonless.sh
+                - buildctl
             args:
                 - build
                 - --frontend
