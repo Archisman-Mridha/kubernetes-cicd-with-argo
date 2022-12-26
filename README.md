@@ -13,7 +13,7 @@ Tools used to build the system -
 * [x] Argo Events \
     Kubernetes Native event driven workflow manager used to detect code pushes to GitHub and trigger the corresponding Argo Workflow.
 
-* [ ] Argo Image Updater
+* [x] Argo Image Updater
 
 * [ ] Argo Rollouts
 
