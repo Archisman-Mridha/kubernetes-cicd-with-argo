@@ -4,3 +4,5 @@ terraform.tfstate
 terraform.tfstate.backup
 
 *.secret.yaml
+
+node_modules
