@@ -1,6 +1,5 @@
 # CI/CD for Kubernetes
-
-Building an end to end CloudNative fully automated Kubernetes native CI/CD pipeline using the Argo ecosystem.
+Building an end to end CloudNative fully automated `Kubernetes native CI/CD pipeline` using the `Argo ecosystem`.
 
 Tools used to build the system -
 
@@ -13,7 +12,7 @@ Tools used to build the system -
 * [x] Argo Events \
     Kubernetes Native event driven workflow manager used to detect code pushes to GitHub and trigger the corresponding Argo Workflow.
 
-* [x] Argo Image Updater
+* [x] ArgoCD Image Updater
 
 * [ ] Argo Rollouts
 
